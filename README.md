@@ -1,5 +1,20 @@
 # PasswordGenerator
 
+A simple password generator implemented in Javascript with support for numbers, alphabets and special characters support.
+
+## Steps to generate password
+
+1. Enter password length
+2. Select one or more options from Alphabets, numbers and special characters.
+3. Click on generate password button to generate password.
+4. Copy the password using copy button.
+
+## Misc Information
+
+During the generation of password, if user selects all 3 options, it won't guarantee that password will contain all 3 category of characters,
+it's just a confirmation from user that he wants to generate password which can contain all 3 categories.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
 ## Development server
@@ -12,16 +27,4 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory
