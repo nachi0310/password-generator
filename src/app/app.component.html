@@ -5,7 +5,7 @@
       Secure Password Generator
     </h2>
   </header>
-  <form class="password-form" #registrationForm="ngForm" (ngSubmit)="onSubmit()">
+  <!-- <form class="password-form" #registrationForm="ngForm" (ngSubmit)="onSubmit()">
     <div>
       <div class="pass-length-header">
         <label class="password-label" for="passwordLength">Password length: </label>
@@ -34,14 +34,57 @@
       </div>
       <p *ngIf="boxUnchecked" class="err-msg">Check atleast one box to generate valid password</p>
     </div>  
+  </form> -->
+  <form class="password-form" [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+    <div>
+      <div class="pass-length-header">
+        <label class="password-label" for="passwordLength">Password length: </label>
+        <input id="passwordLength" type="number" class="password-input" name="passwordLength" formControlName="passwordLength" placeholder="e.g. 12">
+      </div>
+      <div class="checkbox-header">
+        <input id="alphabetCheckbox" class="checkbox" type="checkbox" name="alphabetCheck" formControlName="isAlphabetChecked">
+        <label for="alphabetCheckbox" class="checkbox-desc">
+          Include Alphabets (eg. a, A, b, B, c, C)
+        </label>
+      </div>
+      <div class="checkbox-header">
+        <input id="numberCheckbox" class="checkbox" type="checkbox" name="numberCheck" formControlName="isNumberChecked">
+        <label for="numberCheckbox" class="checkbox-desc">
+          Include numbers (eg. 1,2,3,4)
+        </label>
+      </div>
+      <div class="checkbox-header">
+        <input id="specialCharacterCheck" class="checkbox" type="checkbox" name="charCheck" formControlName="isCharChecked">
+        <label for="specialCharacterCheck" class="checkbox-desc">
+          Include special characters (eg. !,@,#,$)
+        </label>
+      </div>
+      <div class="button-header">
+        <Button type="submit" id="generate-btn" class="generate-btn" [disabled]="!passwordForm.valid">Generate Password</Button>
+      </div>
+      <p *ngIf="boxUnchecked" class="err-msg">Check atleast one box to generate valid password</p>
+    </div>  
   </form>
   <div class="password-text-header">
     <div class="password-title">Your generated password will appear here</div>
     <div class="password-val"> 
       <div class="pass-text">{{passwordValue}}</div>    
     </div>
-    <button *ngIf="passwordValue.length > 0" class="copy-btn"  type="button" (click)="copyCode()">Copy password</button>
+    <button *ngIf="showCopy" class="copy-btn" (click)="copyCode()">Copy password</button>
     <div *ngIf="passwordCopy" class="copy-msg">Password copied to clipboard!</div>
   </div>
 </div>  
 
+<!-- <div>
+  <div class="image-parent">
+    <img src={{this.currentImageURL}}/>
+  </div>
+  <div class="nav-btn">
+    <div (click)="selectImg(0)" class="nav-1">
+      Left
+    </div>
+    <div (click)="selectImg(1)" class="nav-2">
+      Right
+    </div>
+  </div>
+</div> -->
