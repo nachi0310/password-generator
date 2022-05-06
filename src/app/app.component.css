@@ -103,3 +103,9 @@ textarea {
     text-align: center;
     color: red;
 }
+.nav-btn {
+    display:flex;
+}
+.nav-2 {
+    margin-left: 1rem;
+}
